@@ -1,0 +1,35 @@
+<resources>
+
+    //Ресурсы строковое для первого активити
+    <string name="app_name">Налоговое прогнозирование</string>
+    <string name="total_amount_with_VAT">Общая сумма с НДС:</string>
+    <string name="value_with_VAT">введи сумму с НДС общую</string>
+    <string name="sums_with_VAT">Вычеты с НДС</string>
+    <string name="deduction">сумма вычета</string>
+    <string name="setting_deduction">Установка размера вычета в % (от 1%  до 100%)</string>
+    <string name="percent">введи проценты %</string>
+    <string name="income_tax">Налог на прибыль</string>
+    <string name="income_sum">Введи сумму налога на прибыль</string>
+    <string name="quarterly_deductions">Отчисления за квартал</string>
+    <string name="sum_quarterly">введите сумму отчислений</string>
+    <string name="send">посчитать все</string>
+
+
+    //Ресурсы строковое для второго активити
+    <string name="result_message">Результаты обработки</string>
+    <string name="result_VAT">Сумма НДС:</string>
+    <string name="result_not_VAT">Сумма без НДС:</string>
+    <string name="rub">руб.</string>
+    <string name="deductions_for_VAT">Вычетов по НДС необходимо в %  /  рублей</string>
+    <string name="VAT_to_pay_enter">НДС оплатить необходимо в %   /  рублей</string>
+    <string name="total_amounth_VAT_and_income">Общая сумма оплаты НДС и налога на прибыль</string>
+    <string name="tax_burden_in_percent">Налоговая нагрузка:</string>
+    <string name="percent_name"> % </string>
+    <string name="tax_burden_in_worker">Налоговая нагрузка с отчислениями:</string>
+    <string name="current_state">Текущее состояние:</string>
+    <string name="total_sum_money">общая сумма вычетов текущее:</string>
+    <string name="payable_VAT_out">к оплате НДС вышло:</string>
+    <string name="need_to_bring">Необходимо еще:</string>
+    <string name="collect_deductions">набрать вычетов:</string>
+    <string name="yet_to_list">еще перечислить с ндс:</string>
+</resources>

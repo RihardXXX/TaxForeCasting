@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="3dip"
+            android:background="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:gravity="center"
+
+            android:text="@string/total_amount_with_VAT"/>
+
+        <EditText
+            android:id="@+id/sum_VAT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/value_with_VAT"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="3dip"
+            android:background="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold|italic"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="@string/sums_with_VAT" />
+
+        <EditText
+            android:id="@+id/deduction2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+        <EditText
+            android:id="@+id/deduction3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+        <EditText
+            android:id="@+id/deduction4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+        <EditText
+            android:id="@+id/deduction5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+        <EditText
+            android:id="@+id/deduction6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+        <EditText
+            android:id="@+id/deduction7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+        <EditText
+            android:id="@+id/deduction8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+        <EditText
+            android:id="@+id/deduction9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+        <EditText
+            android:id="@+id/deduction10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+
+        <EditText
+            android:id="@+id/deduction11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+
+        <EditText
+            android:id="@+id/deduction12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+
+        <EditText
+            android:id="@+id/deduction13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/deduction"/>
+
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="3dip"
+            android:background="#000000" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textStyle="bold|italic"
+            android:layout_marginTop="15dp"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="@string/setting_deduction" />
+
+        <EditText
+            android:id="@+id/percent_sum"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/percent"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="3dip"
+            android:background="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold|italic"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="@string/income_tax"/>
+
+        <EditText
+            android:id="@+id/incomex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/income_sum"/>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="3dip"
+            android:background="#000000" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold|italic"
+            android:textColor="#000000"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:text="@string/quarterly_deductions"/>
+
+        <EditText
+            android:id="@+id/quarterly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/sum_quarterly"/>
+
+        <View
+        android:layout_width="fill_parent"
+        android:layout_height="3dip"
+        android:background="#000000" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:layout_margin="4dp"
+            android:text="@string/send"
+            android:onClick="toCalculate"
+            />
+
+
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="3dip"
+            android:background="#000000" />
+
+
+    </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+</RelativeLayout>
