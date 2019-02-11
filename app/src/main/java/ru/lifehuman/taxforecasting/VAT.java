@@ -13,9 +13,11 @@ public class VAT {
     //Конструктор который упаковывает все данные в объект
     public VAT(String totalAmountWithVAT, String[] deductionsWithVAT, String percentDeductionVAT, String incomeTax, String quarterlyDeduction) {
         ArrayList<Double> list = new ArrayList<>();//список для приема данных
+        list = VAT.getFullArrayList(deductionsWithVAT);//массив строк превращаем в список double
+        this.deductionsWithVAT = VATResult.getResultVAT(VAT.getDoubleForArraylist(list));
+        //метод складывающий все элементы коллекции а результат узнаем ндс с вычетов
+
         this.totalAmountWithVAT = VAT.getDoubleToString(totalAmountWithVAT);//строку превращаем в double
-        list = VAT.getFullArrayList(deductionsWithVAT);//массив строк превращаем в список
-        this.deductionsWithVAT = VAT.getDoubleForArraylist(list);//метод складывающий все элементы коллекции
         this.percentDeductionVAT = VAT.getFloatToString(percentDeductionVAT);//превращаем строку в folat
         this.incomeTax = VAT.getDoubleToString(incomeTax);//налог на прибыль строку преврвщаем в double
         this.quarterlyDeduction = VAT.getDoubleToString(quarterlyDeduction);//превращаем отчисления в строку
