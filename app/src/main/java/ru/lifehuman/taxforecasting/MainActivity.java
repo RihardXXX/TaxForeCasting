@@ -4,19 +4,20 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     //Это ключи для отправки данных через интент второй активи
-    //ключи для входящих активити
+    //ключи для входящих лаетов
     public final static String SUM_VAT = "SUM_VAT";//сумма с ндс
     public final static String DEDUCTIONS = "DEDUCTIONS";//общие отчисления
     public final static String PERSENT_SUM = "PERSENT_SUM";//процент вычета
     public final static String INCOME_TAX = "INCOME_TAX";// налог на прибыль
     public final static String QUATERLY_TAX = "QUATERLY_TAX";// отчисления рабочих
 
-    // ключи для исходящих активи
+    // ключи для исходящих лаетов
     public final static String VAT = "VAT";//НДС
     public final static String TOTAL_AMOUNT_VAT = "TOTAL_AMOUNT_VAT";//сумма без НДС
     public final static String DEDUCTION_TOTAL_VAT = "DEDUCTION_TOTAL_VAT";//сумма вычетов по НДС
@@ -42,16 +43,69 @@ public class MainActivity extends AppCompatActivity {
     public void toCalculate(View view){
         Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки
 
+        //Приемка входящих данных с макета
+
+        // Получаем текстовые поля в текущей Activity===============================================
+
+        //общая сумма с НДС
+        EditText sumVAT = (EditText) findViewById(R.id.sum_VAT);
+        String sum_VAT = sumVAT.getText().toString();
+
+        // Получение вычетов
+        EditText deduction_1 = (EditText) findViewById(R.id.deduction1);
+        String deduction1 = deduction_1.getText().toString();
+        EditText deduction_2 = (EditText) findViewById(R.id.deduction2);
+        String deduction2 = deduction_2.getText().toString();
+        EditText deduction_3 = (EditText) findViewById(R.id.deduction3);
+        String deduction3 = deduction_3.getText().toString();
+        EditText deduction_4 = (EditText) findViewById(R.id.deduction4);
+        String deduction4 = deduction_4.getText().toString();
+        EditText deduction_5 = (EditText) findViewById(R.id.deduction5);
+        String deduction5 = deduction_5.getText().toString();
+        EditText deduction_6 = (EditText) findViewById(R.id.deduction6);
+        String deduction6 = deduction_6.getText().toString();
+        EditText deduction_7 = (EditText) findViewById(R.id.deduction7);
+        String deduction7 = deduction_7.getText().toString();
+        EditText deduction_8 = (EditText) findViewById(R.id.deduction8);
+        String deduction8 = deduction_8.getText().toString();
+        EditText deduction_9 = (EditText) findViewById(R.id.deduction9);
+        String deduction9 = deduction_9.getText().toString();
+        EditText deduction_10 = (EditText) findViewById(R.id.deduction10);
+        String deduction10 = deduction_10.getText().toString();
+        EditText deduction_11 = (EditText) findViewById(R.id.deduction11);
+        String deduction11 = deduction_11.getText().toString();
+        EditText deduction_12 = (EditText) findViewById(R.id.deduction12);
+        String deduction12 = deduction_12.getText().toString();
+        //инициализация массива для приема строк вычетов
+        String[] strings = {deduction1,deduction2,deduction3,deduction4,deduction5,deduction6,
+        deduction7,deduction8,deduction9,deduction10,deduction11,deduction12};
+
+        //Установка размера вычета НДС получаем
+        EditText percent_sum = (EditText) findViewById(R.id.percent_sum);
+        String percentSum = percent_sum.getText().toString();
+
+        //Налог на прибыль получаем с активити
+        EditText incomex_edit = (EditText) findViewById(R.id.incomex);
+        String incomex = incomex_edit.getText().toString();
+
+        //Отчисления за квартал получаем с активити
+        EditText quaterly_edit = (EditText) findViewById(R.id.quarterly);
+        String quaterly = quaterly_edit.getText().toString();
+
+        //==========================================================================================
+
         //Упаковка входящих данные в объект
-        String[] strings = new String[12];//массив для приема строк вычетов
+        //Создаем объект
+        VAT firstObject = new VAT(sum_VAT, strings, percentSum,incomex, quaterly);
 
 
-
+        //==========================================================================================
         //Вычисление данных и упаковка во второй объект
 
 
 
         //Отправка данных во второй активи через интент
+        //Не забываем превращать double строки
 
 
 

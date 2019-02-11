@@ -52,43 +52,4 @@ public class VATResult {
         return mustList;
     }
 
-    public void setVat(double vat) {
-        this.vat = vat;
-    }
-
-    public void setTotalAmountNotVat(double totalAmountNotVat) {
-        this.totalAmountNotVat = totalAmountNotVat;
-    }
-
-    public void setDeductionSumVAT(double deductionSumVAT) {
-        this.deductionSumVAT = deductionSumVAT;
-    }
-
-    public void setTotalVATToPay(double totalVATToPay) {
-        this.totalVATToPay = totalVATToPay;
-    }
-
-    public void setTotalAmountVATAndIncomeTax(double totalAmountVATAndIncomeTax) {
-        this.totalAmountVATAndIncomeTax = totalAmountVATAndIncomeTax;
-    }
-
-    public void setTaxBurdenPercent(float taxBurdenPercent) {
-        this.taxBurdenPercent = taxBurdenPercent;
-    }
-
-    public void setTaxBurdenWithQuarterly(float taxBurdenWithQuarterly) {
-        this.taxBurdenWithQuarterly = taxBurdenWithQuarterly;
-    }
-
-    public void setToPayVAT(double toPayVAT) {
-        this.toPayVAT = toPayVAT;
-    }
-
-    public void setMustCollectDeductions(double mustCollectDeductions) {
-        this.mustCollectDeductions = mustCollectDeductions;
-    }
-
-    public void setMustList(double mustList) {
-        this.mustList = mustList;
-    }
 }

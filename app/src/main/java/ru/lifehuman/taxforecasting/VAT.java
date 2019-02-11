@@ -38,7 +38,9 @@ public class VAT {
     public static ArrayList<Double> getFullArrayList(String[] strList){
         ArrayList<Double> list = new ArrayList<>();//создаем коллекцию
         for (int i = 0; i < strList.length; i++){//проходимся циклом по массиву
-            list.add(VAT.getDoubleToString(VAT.getStringReplaceOnDot(strList[i])));//
+            if (strList[i] != null) {//если элемент массива не пустой проверка на нул
+                list.add(VAT.getDoubleToString(VAT.getStringReplaceOnDot(strList[i])));//
+            }
         }// превращаем строку в строку без запятых превращаем в double и кладем в коллекцию
         return list;//возвращаем коллекцию с вычетами
     }
@@ -50,6 +52,18 @@ public class VAT {
             sum += i;
         }
         return sum;
+    }
+
+    //Метод превращающий числа в строки
+    public static String getStringForDouble(double number){
+        String string = null;
+        return string = Double.toString(number);
+    }
+
+    //Метод превращающий числа в строки
+    public static String getStringForFloat(float number){
+        String string = null;
+        return string = Float.toString(number);
     }
 
     public double getTotalAmountWithVAT() {
