@@ -3,8 +3,10 @@ package ru.lifehuman.taxforecasting;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -41,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void toCalculate(View view){
-        Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки
 
         //Приемка входящих данных с макета
 
@@ -79,38 +80,43 @@ public class MainActivity extends AppCompatActivity {
         //инициализация массива для приема строк вычетов
         String[] strings = {deduction1,deduction2,deduction3,deduction4,deduction5,deduction6,
         deduction7,deduction8,deduction9,deduction10,deduction11,deduction12};
-
-        //Установка размера вычета НДС получаем
+//
+//        //Установка размера вычета НДС получаем
         EditText percent_sum = (EditText) findViewById(R.id.percent_sum);
         String percentSum = percent_sum.getText().toString();
-
-        //Налог на прибыль получаем с активити
+//
+//        //Налог на прибыль получаем с активити
         EditText incomex_edit = (EditText) findViewById(R.id.incomex);
         String incomex = incomex_edit.getText().toString();
-
-        //Отчисления за квартал получаем с активити
+//
+//        //Отчисления за квартал получаем с активити
         EditText quaterly_edit = (EditText) findViewById(R.id.quarterly);
         String quaterly = quaterly_edit.getText().toString();
-
-        //==========================================================================================
-
-        //Упаковка входящих данные в объект
-        //Создаем объект
-        VAT firstObject = new VAT(sum_VAT, strings, percentSum,incomex, quaterly);
-        //в конструкторе проходят все манипуляции с объектом
-
-        //==========================================================================================
-        //Вычисление данных и упаковка во второй объект
-        VATResult lastObject = new VATResult(firstObject);
+//
+//        //==========================================================================================
+//
+//        //Упаковка входящих данные в объект
+//        //Создаем объект
+     //   VAT firstObject = new VAT(sum_VAT, strings, percentSum,incomex, quaterly);
+//        //в конструкторе проходят все манипуляции с объектом
+//
+//        //==========================================================================================
+//        //Вычисление данных и упаковка во второй объект
+//        VATResult lastObject = new VATResult(firstObject);
         //в конструкторе проходят все манипуляци с объектом
 
         //Отправка данных во второй активи через интент
         //Не забываем превращать double строки
 
+        // показываем что идет обработка окошко
+        Toast toast = Toast.makeText(this, "Идет обработка запроса",Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0,0);
+        toast.show();
 
-
-
+        Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки
+        intent.putExtra(SUM_VAT,sum_VAT);
         startActivity(intent);
+
     }
 
     //Упаковка первых данных объекта VAT

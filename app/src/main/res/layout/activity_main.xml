@@ -26,6 +26,8 @@
             android:textColor="#000000"
             android:textSize="20dp"
             android:gravity="center"
+            android:background="@color/colorPrimary"
+            android:fontFamily="monospace"
 
             android:text="@string/total_amount_with_VAT"/>
 
@@ -43,11 +45,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:textStyle="bold|italic"
             android:textColor="#000000"
             android:textSize="20dp"
             android:gravity="center"
+            android:background="@color/colorPrimary"
+            android:fontFamily="monospace"
             android:text="@string/sums_with_VAT" />
 
         <EditText
@@ -125,10 +129,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textStyle="bold|italic"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:textColor="#000000"
             android:textSize="20dp"
             android:gravity="center"
+            android:background="@color/colorPrimary"
+            android:fontFamily="monospace"
             android:text="@string/setting_deduction" />
 
         <EditText
@@ -145,11 +151,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:textStyle="bold|italic"
             android:textColor="#000000"
             android:textSize="20dp"
             android:gravity="center"
+            android:background="@color/colorPrimary"
+            android:fontFamily="monospace"
             android:text="@string/income_tax"/>
 
         <EditText
@@ -166,11 +174,13 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="5dp"
             android:textStyle="bold|italic"
             android:textColor="#000000"
             android:textSize="20dp"
             android:gravity="center"
+            android:background="@color/colorPrimary"
+            android:fontFamily="monospace"
             android:text="@string/quarterly_deductions"/>
 
         <EditText
@@ -185,10 +195,17 @@
         android:background="#000000" />
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:gravity="center"
             android:background="@color/colorPrimary"
-            android:layout_margin="4dp"
+            android:fontFamily="monospace"
             android:text="@string/send"
             android:onClick="toCalculate"
             />

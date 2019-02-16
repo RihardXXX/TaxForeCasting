@@ -24,6 +24,8 @@
             android:textStyle="bold"
             android:textColor="#000000"
             android:textSize="30dp"
+            android:background="@color/colorPrimary"
+            android:fontFamily="monospace"
             android:text="@string/result_message"/>
 
 
@@ -35,8 +37,10 @@
 
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:orientation="horizontal">
             <TextView
                 android:layout_width="wrap_content"
@@ -45,14 +49,19 @@
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:gravity="center"
-
+                android:background="@color/colorPrimary"
+                android:fontFamily="monospace"
                 android:text="@string/total_amount_with_VAT"
                 />
 
             <TextView
                 android:id="@+id/result_total_amount_with_VAT"
-                android:layout_width="185dp"
+                android:layout_width="150dp"
                 android:layout_height="match_parent"
+                android:textStyle="bold|italic"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:fontFamily="monospace"
                 android:gravity="center"/>
 
             <TextView
@@ -61,6 +70,8 @@
                 android:textStyle="bold|italic"
                 android:textColor="#000000"
                 android:textSize="18dp"
+                android:background="@color/colorPrimary"
+                android:fontFamily="monospace"
                 android:gravity="center"
                 android:text="@string/rub"/>
 
@@ -77,6 +88,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -86,11 +99,13 @@
                     android:textColor="#000000"
                     android:textSize="18dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/result_VAT"/>
 
                 <TextView
                     android:id="@+id/VAT"
-                    android:layout_width="255dp"
+                    android:layout_width="238dp"
                     android:layout_height="match_parent" />
 
                 <TextView
@@ -100,6 +115,8 @@
                     android:textColor="#000000"
                     android:textSize="18dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/rub"/>
 
 
@@ -115,6 +132,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:orientation="horizontal">
 
             <TextView
@@ -123,12 +142,14 @@
                 android:textStyle="bold|italic"
                 android:textColor="#000000"
                 android:textSize="18dp"
+                android:background="@color/colorPrimary"
+                android:fontFamily="monospace"
                 android:gravity="center"
                 android:text="@string/result_not_VAT"/>
 
             <TextView
                 android:id="@+id/not_VAT"
-                android:layout_width="220dp"
+                android:layout_width="190dp"
                 android:layout_height="match_parent" />
 
             <TextView
@@ -138,6 +159,8 @@
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:fontFamily="monospace"
                 android:text="@string/rub"/>
 
         </LinearLayout>
@@ -153,6 +176,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:orientation="vertical">
 
 
@@ -161,8 +186,10 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold|italic"
                 android:textColor="#000000"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:fontFamily="monospace"
                 android:text="@string/deductions_for_VAT"/>
 
 
@@ -199,6 +226,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:orientation="vertical">
 
 
@@ -207,8 +236,10 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/VAT_to_pay_enter"/>
 
 
@@ -247,6 +278,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:orientation="vertical">
 
             <TextView
@@ -254,8 +287,10 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold|italic"
                 android:textColor="#000000"
-                android:textSize="18dp"
+                android:textSize="15dp"
                 android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:fontFamily="monospace"
                 android:text="@string/total_amounth_VAT_and_income"/>
 
             <LinearLayout
@@ -265,16 +300,18 @@
 
                 <TextView
                     android:id="@+id/VAT_and_income"
-                    android:layout_width="370dp"
+                    android:layout_width="355dp"
                     android:layout_height="match_parent" />
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
                     android:textSize="18dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/rub"/>
 
             </LinearLayout>
@@ -295,6 +332,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:orientation="horizontal">
 
 
@@ -303,13 +342,15 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold|italic"
                 android:textColor="#000000"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:fontFamily="monospace"
                 android:text="@string/tax_burden_in_percent"/>
 
             <TextView
                 android:id="@+id/tax_burden_percent"
-                android:layout_width="200dp"
+                android:layout_width="180dp"
                 android:layout_height="match_parent" />
 
             <TextView
@@ -319,6 +360,8 @@
                 android:textColor="#000000"
                 android:textSize="18dp"
                 android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:fontFamily="monospace"
                 android:text="@string/percent_name"/>
 
         </LinearLayout>
@@ -334,6 +377,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:orientation="horizontal">
 
 
@@ -342,13 +387,15 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/tax_burden_in_worker"/>
 
                 <TextView
                     android:id="@+id/tax_burden_percent_worker"
-                    android:layout_width="65dp"
+                    android:layout_width="35dp"
                     android:layout_height="match_parent" />
 
                 <TextView
@@ -358,6 +405,8 @@
                     android:textColor="#000000"
                     android:textSize="18dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/percent_name"/>
 
             </LinearLayout>
@@ -375,6 +424,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:orientation="horizontal">
 
 
@@ -383,13 +434,15 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/quarterly_deductions"/>
 
                 <TextView
                     android:id="@+id/quarterly_deductions_money"
-                    android:layout_width="180dp"
+                    android:layout_width="150dp"
                     android:layout_height="match_parent" />
 
                 <TextView
@@ -397,8 +450,10 @@
                     android:layout_height="match_parent"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/rub"/>
 
             </LinearLayout>
@@ -420,6 +475,8 @@
                 android:textColor="#000000"
                 android:textSize="20dp"
                 android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:fontFamily="monospace"
                 android:text="@string/current_state"
                 />
 
@@ -434,6 +491,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:orientation="horizontal">
 
 
@@ -442,13 +501,15 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="14dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/total_sum_money"/>
 
                 <TextView
                     android:id="@+id/total_sum_money_VAT"
-                    android:layout_width="100dp"
+                    android:layout_width="110dp"
                     android:layout_height="match_parent" />
 
                 <TextView
@@ -456,8 +517,10 @@
                     android:layout_height="match_parent"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/rub"/>
 
             </LinearLayout>
@@ -477,6 +540,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:orientation="horizontal">
 
 
@@ -485,8 +550,10 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="14dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/payable_VAT_out"/>
 
                 <TextView
@@ -499,8 +566,10 @@
                     android:layout_height="match_parent"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/rub"/>
 
             </LinearLayout>
@@ -522,6 +591,8 @@
                 android:textColor="#000000"
                 android:textSize="20dp"
                 android:gravity="center"
+                android:background="@color/colorPrimary"
+                android:fontFamily="monospace"
                 android:text="@string/need_to_bring"
                 />
 
@@ -536,6 +607,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:orientation="horizontal">
 
 
@@ -544,8 +617,10 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="14dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/collect_deductions"/>
 
                 <TextView
@@ -558,8 +633,10 @@
                     android:layout_height="match_parent"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/rub"/>
 
             </LinearLayout>
@@ -579,6 +656,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:orientation="horizontal">
 
 
@@ -587,13 +666,15 @@
                     android:layout_height="wrap_content"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="14dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/yet_to_list"/>
 
                 <TextView
                     android:id="@+id/yet_to_list_money"
-                    android:layout_width="170dp"
+                    android:layout_width="165dp"
                     android:layout_height="match_parent" />
 
                 <TextView
@@ -601,8 +682,10 @@
                     android:layout_height="match_parent"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:gravity="center"
+                    android:background="@color/colorPrimary"
+                    android:fontFamily="monospace"
                     android:text="@string/rub"/>
 
             </LinearLayout>
