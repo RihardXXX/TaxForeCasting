@@ -1,6 +1,7 @@
 package ru.lifehuman.taxforecasting;
 
 public class VATResult {
+    
     private double vat;//НДС
     private double totalAmountNotVat;//сумма без НДС
     private double deductionSumVAT;//сумма вычетов по НДС необходимо
