@@ -16,20 +16,20 @@ public class VATResult {
     private VAT firstObject;//объект класса VAT в который будут классататься входящие данные
 
     //Конструктор в который будет класться объект типа VAT от которого будут изменяться данные
-    public VATResult(VAT firstObject) {
-        this.firstObject = firstObject;//кладем в свойство объект первый
-        this.vat = VATResult.getResultVAT(firstObject.getTotalAmountWithVAT());//вычисляем ндс с общей суммы пришедшей
-        this.totalAmountNotVat = VATResult.getResultNotVAT(firstObject.getTotalAmountWithVAT(),vat);//вычисляем сумму без ндс
-        this.deductionSumVAT = VATResult.getPercentVAT(firstObject.getProcentDeductionVAT(),vat);//
-        this.percentBalans = 100 - firstObject.getProcentDeductionVAT();//узнаем остаток процента с которого будем платить ндс
-        this.totalVATToPay = VATResult.getPercentVAT(this.percentBalans,vat);// считаем ндс который необходимо оплатить
-        this.totalAmountVATAndIncomeTax = this.vat + firstObject.getIncomeTax();//НДС + налог на прибыль
-        //
-    }
+//    public VATResult(VAT firstObject) {
+//        this.firstObject = firstObject;//кладем в свойство объект первый
+//        this.vat = VATResult.getResultVAT(firstObject.getTotalAmountWithVAT());//вычисляем ндс с общей суммы пришедшей
+//        this.totalAmountNotVat = VATResult.getResultNotVAT(firstObject.getTotalAmountWithVAT(),vat);//вычисляем сумму без ндс
+//        this.deductionSumVAT = VATResult.getPercentVAT(firstObject.getProcentDeductionVAT(),vat);//
+//        this.percentBalans = 100 - firstObject.getProcentDeductionVAT();//узнаем остаток процента с которого будем платить ндс
+//        this.totalVATToPay = VATResult.getPercentVAT(this.percentBalans,vat);// считаем ндс который необходимо оплатить
+//        this.totalAmountVATAndIncomeTax = this.vat + firstObject.getIncomeTax();//НДС + налог на прибыль
+//        //
+//    }
 
     //Формула подсчета НДС с вычетов
-    public static double getResultVAT(double number){
-        return (number * 20) / 120;
+    public double getResultVAT(String number){
+        return this.vat = (VAT.getDoubleToString(number) * 20) / 120;
     }
 
     //Формула суммы без ндс
@@ -91,4 +91,6 @@ public class VATResult {
     public float getPercentBalans() {
         return percentBalans;
     }
+
+
 }

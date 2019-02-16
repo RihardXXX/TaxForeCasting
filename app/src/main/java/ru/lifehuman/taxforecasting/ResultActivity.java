@@ -14,14 +14,30 @@ public class ResultActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);//загрузка шаблона
 
+        //общая сумма с НДС выводим результат
+        //==========================================================================================
         //зацепка в шаблоне поля вывода результата
         TextView result_total_amount_with_VAT = (TextView) findViewById(R.id.result_total_amount_with_VAT);
-
         Intent intent = getIntent();//создание интента для приемки
+        String sumVat = intent.getStringExtra(MainActivity.SUM_VAT);//приемка данных с интента
+        result_total_amount_with_VAT.setText(sumVat);//установка в макете результата
+        //==========================================================================================
 
-        String fName = intent.getStringExtra(SUM_VAT);//приемка данных с интента
+        //общая НДС выводим результат
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView VAT = (TextView) findViewById(R.id.VAT);
+        String Vat = intent.getStringExtra(MainActivity.VAT);//приемка данных с интента
+        VAT.setText(Vat);//установка в макете результата
+        //==========================================================================================
 
-        result_total_amount_with_VAT.setText(fName);//установка в макете результата
+        //общая сумма без НДС
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView not_VAT = (TextView) findViewById(R.id.not_VAT);
+        String notVAT = intent.getStringExtra(MainActivity.TOTAL_AMOUNT_VAT);//приемка данных с интента
+        not_VAT.setText(notVAT);//установка в макете результата
+        //==========================================================================================
 
 
 

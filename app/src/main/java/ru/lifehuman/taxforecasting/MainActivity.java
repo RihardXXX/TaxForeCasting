@@ -50,33 +50,33 @@ public class MainActivity extends AppCompatActivity {
 
         //общая сумма с НДС
         EditText sumVAT = (EditText) findViewById(R.id.sum_VAT);
-        String sum_VAT = sumVAT.getText().toString();
+        String sum_VAT = MainActivity.myTrim(sumVAT.getText().toString());
 
         // Получение вычетов
         EditText deduction_1 = (EditText) findViewById(R.id.deduction1);
-        String deduction1 = deduction_1.getText().toString();
+        String deduction1 = MainActivity.myTrim(deduction_1.getText().toString());
         EditText deduction_2 = (EditText) findViewById(R.id.deduction2);
-        String deduction2 = deduction_2.getText().toString();
+        String deduction2 = MainActivity.myTrim(deduction_2.getText().toString());
         EditText deduction_3 = (EditText) findViewById(R.id.deduction3);
-        String deduction3 = deduction_3.getText().toString();
+        String deduction3 = MainActivity.myTrim(deduction_3.getText().toString());
         EditText deduction_4 = (EditText) findViewById(R.id.deduction4);
-        String deduction4 = deduction_4.getText().toString();
+        String deduction4 = MainActivity.myTrim(deduction_4.getText().toString());
         EditText deduction_5 = (EditText) findViewById(R.id.deduction5);
-        String deduction5 = deduction_5.getText().toString();
+        String deduction5 = MainActivity.myTrim(deduction_5.getText().toString());
         EditText deduction_6 = (EditText) findViewById(R.id.deduction6);
-        String deduction6 = deduction_6.getText().toString();
+        String deduction6 = MainActivity.myTrim(deduction_6.getText().toString());
         EditText deduction_7 = (EditText) findViewById(R.id.deduction7);
-        String deduction7 = deduction_7.getText().toString();
+        String deduction7 = MainActivity.myTrim(deduction_7.getText().toString());
         EditText deduction_8 = (EditText) findViewById(R.id.deduction8);
-        String deduction8 = deduction_8.getText().toString();
+        String deduction8 = MainActivity.myTrim(deduction_8.getText().toString());
         EditText deduction_9 = (EditText) findViewById(R.id.deduction9);
-        String deduction9 = deduction_9.getText().toString();
+        String deduction9 = MainActivity.myTrim(deduction_9.getText().toString());
         EditText deduction_10 = (EditText) findViewById(R.id.deduction10);
-        String deduction10 = deduction_10.getText().toString();
+        String deduction10 = MainActivity.myTrim(deduction_10.getText().toString());
         EditText deduction_11 = (EditText) findViewById(R.id.deduction11);
-        String deduction11 = deduction_11.getText().toString();
+        String deduction11 = MainActivity.myTrim(deduction_11.getText().toString());
         EditText deduction_12 = (EditText) findViewById(R.id.deduction12);
-        String deduction12 = deduction_12.getText().toString();
+        String deduction12 = MainActivity.myTrim(deduction_12.getText().toString());
         //инициализация массива для приема строк вычетов
         String[] strings = {deduction1,deduction2,deduction3,deduction4,deduction5,deduction6,
         deduction7,deduction8,deduction9,deduction10,deduction11,deduction12};
@@ -113,8 +113,14 @@ public class MainActivity extends AppCompatActivity {
         toast.setGravity(Gravity.CENTER, 0,0);
         toast.show();
 
+        VAT vat = new VAT();//объекты для осуществления вычислений и инициализации
+        vat.setTotalAmountWithVAT(sum_VAT);//заполняем объект данными
+
+        VATResult vatResult = new VATResult();//объекты для осуществления вычислений и инициализации
         Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки
-        intent.putExtra(SUM_VAT,sum_VAT);
+        intent.putExtra(SUM_VAT,new VAT().getStringReplaceOnDot(sum_VAT));//передаем сумму с ндс
+        intent.putExtra(VAT,MainActivity.getStringForDouble(vatResult.getResultVAT(sum_VAT)));//передаем НДС
+        intent.putExtra(TOTAL_AMOUNT_VAT,MainActivity.getStringForDouble(vat.getTotalAmountWithVAT() - vatResult.getVat()));//Сумма без ндс
         startActivity(intent);
 
     }
@@ -129,5 +135,28 @@ public class MainActivity extends AppCompatActivity {
     public ArrayList<Double> packagingLastVAT(){
         ArrayList<Double> newList = new ArrayList<>();
         return  newList;
+    }
+
+    //Метод превращающий числа в строки
+    public static String getStringForDouble(double number){
+        String string = null;
+        return string = Double.toString(number);
+    }
+
+    //Метод превращающий числа в строки
+    public static String getStringForFloat(float number){
+        String string = null;
+        return string = Float.toString(number);
+    }
+
+    //округление до сотых данных
+    public static double getRound(double number){
+        return Math.round(number * 100) / 100;
+    }
+
+    //метод удаляющий все пробелы в программе
+    public static String myTrim(String string){
+        String myString = null;
+        return myString = string.replaceAll("\\s+","");
     }
 }

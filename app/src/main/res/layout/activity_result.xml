@@ -106,7 +106,12 @@
                 <TextView
                     android:id="@+id/VAT"
                     android:layout_width="238dp"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:textStyle="bold|italic"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:fontFamily="monospace"
+                    android:gravity="center" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -150,7 +155,12 @@
             <TextView
                 android:id="@+id/not_VAT"
                 android:layout_width="190dp"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:textStyle="bold|italic"
+                android:textColor="#000000"
+                android:textSize="15dp"
+                android:fontFamily="monospace"
+                android:gravity="center"/>
 
             <TextView
                 android:layout_width="match_parent"

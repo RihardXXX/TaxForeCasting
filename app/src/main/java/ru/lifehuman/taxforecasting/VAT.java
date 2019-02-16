@@ -11,19 +11,19 @@ public class VAT {
     private double quarterlyDeduction;//отчисления за квартал
 
     //Конструктор который упаковывает все данные в объект
-    public VAT(String totalAmountWithVAT, String[] deductionsWithVAT, String percentDeductionVAT, String incomeTax, String quarterlyDeduction) {
-
-        this.totalAmountWithVAT = VAT.getDoubleToString(VAT.getStringReplaceOnDot(totalAmountWithVAT));//строку превращаем в double
-
-        ArrayList<Double> list = new ArrayList<>();//список для приема данных
-        list = VAT.getFullArrayList(deductionsWithVAT);//массив строк превращаем в список double
-        this.deductionsWithVAT = VATResult.getResultVAT(VAT.getDoubleForArraylist(list));
-        //метод складывающий все элементы коллекции а результат узнаем ндс с вычетов
-
-        this.percentDeductionVAT = VAT.getFloatToString(VAT.getStringReplaceOnDot(percentDeductionVAT));//превращаем строку в folat
-        this.incomeTax = VAT.getDoubleToString(VAT.getStringReplaceOnDot(incomeTax));//налог на прибыль строку преврвщаем в double
-        this.quarterlyDeduction = VAT.getDoubleToString(VAT.getStringReplaceOnDot(quarterlyDeduction));//превращаем отчисления в строку
-    }
+//    public VAT(String totalAmountWithVAT, String[] deductionsWithVAT, String percentDeductionVAT, String incomeTax, String quarterlyDeduction) {
+//
+//        this.totalAmountWithVAT = VAT.getDoubleToString(VAT.getStringReplaceOnDot(totalAmountWithVAT));//строку превращаем в double
+//
+//        ArrayList<Double> list = new ArrayList<>();//список для приема данных
+//        list = VAT.getFullArrayList(deductionsWithVAT);//массив строк превращаем в список double
+//        this.deductionsWithVAT = VATResult.getResultVAT(VAT.getDoubleForArraylist(list));
+//        //метод складывающий все элементы коллекции а результат узнаем ндс с вычетов
+//
+//        this.percentDeductionVAT = VAT.getFloatToString(VAT.getStringReplaceOnDot(percentDeductionVAT));//превращаем строку в folat
+//        this.incomeTax = VAT.getDoubleToString(VAT.getStringReplaceOnDot(incomeTax));//налог на прибыль строку преврвщаем в double
+//        this.quarterlyDeduction = VAT.getDoubleToString(VAT.getStringReplaceOnDot(quarterlyDeduction));//превращаем отчисления в строку
+//    }
 
     public static double getDoubleToString(String string){
         return Double.parseDouble(VAT.getStringReplaceOnDot(string));//превращаем строку в double
@@ -58,18 +58,6 @@ public class VAT {
         return sum;
     }
 
-    //Метод превращающий числа в строки
-    public static String getStringForDouble(double number){
-        String string = null;
-        return string = Double.toString(number);
-    }
-
-    //Метод превращающий числа в строки
-    public static String getStringForFloat(float number){
-        String string = null;
-        return string = Float.toString(number);
-    }
-
     public double getTotalAmountWithVAT() {
         return totalAmountWithVAT;
     }
@@ -90,4 +78,7 @@ public class VAT {
         return quarterlyDeduction;
     }
 
+    public void setTotalAmountWithVAT(String totalAmountWithVAT) {
+        this.totalAmountWithVAT = VAT.getDoubleToString(totalAmountWithVAT);
+    }
 }
