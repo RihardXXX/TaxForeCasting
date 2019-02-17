@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -83,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //        //Установка размера вычета НДС получаем
         EditText percent_sum = (EditText) findViewById(R.id.percent_sum);
-        String percentSum = percent_sum.getText().toString();
+        String percentSum = MainActivity.myTrim(percent_sum.getText().toString());
 //
 //        //Налог на прибыль получаем с активити
         EditText incomex_edit = (EditText) findViewById(R.id.incomex);
@@ -117,10 +118,13 @@ public class MainActivity extends AppCompatActivity {
         vat.setTotalAmountWithVAT(sum_VAT);//заполняем объект данными
 
         VATResult vatResult = new VATResult();//объекты для осуществления вычислений и инициализации
+        vatResult.setVAT(vat.getTotalAmountWithVAT());// вычисляем ндс
+        vatResult.setTotalAmountNotVat(vat.getTotalAmountWithVAT()-vatResult.getVat());//вычисляем без ндс и кладем в свойство
+
         Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки
         intent.putExtra(SUM_VAT,new VAT().getStringReplaceOnDot(sum_VAT));//передаем сумму с ндс
-        intent.putExtra(VAT,MainActivity.getStringForDouble(vatResult.getResultVAT(sum_VAT)));//передаем НДС
-        intent.putExtra(TOTAL_AMOUNT_VAT,MainActivity.getStringForDouble(vat.getTotalAmountWithVAT() - vatResult.getVat()));//Сумма без ндс
+        intent.putExtra(VAT,new BigDecimal(vatResult.getVat()).toString());//передаем НДС
+        intent.putExtra(TOTAL_AMOUNT_VAT,new BigDecimal(vatResult.getTotalAmountNotVat()).toString());//Сумма без ндс отправляем
         startActivity(intent);
 
     }

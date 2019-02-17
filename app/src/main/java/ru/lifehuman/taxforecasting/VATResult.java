@@ -1,7 +1,7 @@
 package ru.lifehuman.taxforecasting;
 
 public class VATResult {
-    
+
     private double vat;//НДС
     private double totalAmountNotVat;//сумма без НДС
     private double deductionSumVAT;//сумма вычетов по НДС необходимо
@@ -28,10 +28,12 @@ public class VATResult {
 //        //
 //    }
 
-    //Формула подсчета НДС с вычетов
-    public double getResultVAT(String number){
-        return this.vat = (VAT.getDoubleToString(number) * 20) / 120;
+    //Формула подсчета НДС c общей суммы
+    public void setVAT(double number){
+        this.vat = (number * 20) / 120;
     }
+
+
 
     //Формула суммы без ндс
     public static double getResultNotVAT(double totalAmounth, double vat){
@@ -44,6 +46,11 @@ public class VATResult {
     }
 
 
+
+    //вычисляем сумму без ндс
+    public void setTotalAmountNotVat(double totalAmountNotVat) {
+        this.totalAmountNotVat = totalAmountNotVat;
+    }
 
     public VAT getFirstObject() {
         return firstObject;
