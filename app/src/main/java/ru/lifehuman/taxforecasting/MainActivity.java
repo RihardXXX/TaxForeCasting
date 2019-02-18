@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
     //Это ключи для отправки данных через интент второй активи
     //ключи для входящих лаетов
     public final static String SUM_VAT = "SUM_VAT";//сумма с ндс
@@ -31,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
     public final static String TO_PAY_VAT = "TO_PAY_VAT";//к оплате НДС
     public final static String MUST_COLLECT_DEDUCTIONS = "MUST_COLLECT_DEDUCTIONS";//необходимо набрать вычетов
     public final static String MUST_LIST = "MUST_LIST";// необходимо еще перечислить
-
-
 
 
 
@@ -115,16 +114,21 @@ public class MainActivity extends AppCompatActivity {
         toast.show();
 
         VAT vat = new VAT();//объекты для осуществления вычислений и инициализации
-        vat.setTotalAmountWithVAT(sum_VAT);//заполняем объект данными
+        vat.setTotalAmountWithVAT(sum_VAT);//заполняем объект данными сумма с ндс
 
         VATResult vatResult = new VATResult();//объекты для осуществления вычислений и инициализации
-        vatResult.setVAT(vat.getTotalAmountWithVAT());// вычисляем ндс
+        vatResult.setVAT(vat.getTotalAmountWithVAT());// вычисляем ндс из суммы
         vatResult.setTotalAmountNotVat(vat.getTotalAmountWithVAT()-vatResult.getVat());//вычисляем без ндс и кладем в свойство
+        vat.setPercentDeductionVAT(percentSum);//кладем в объект процент вычета устанавливаемый юзером
 
-        Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки
-        intent.putExtra(SUM_VAT,new VAT().getStringReplaceOnDot(sum_VAT));//передаем сумму с ндс
-        intent.putExtra(VAT,new BigDecimal(vatResult.getVat()).toString());//передаем НДС
-        intent.putExtra(TOTAL_AMOUNT_VAT,new BigDecimal(vatResult.getTotalAmountNotVat()).toString());//Сумма без ндс отправляем
+
+        Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки;
+
+        //Проверяем на пустоту свойство а потом только отправляем через интент
+        TF.getI(SUM_VAT,new VAT().getStringReplaceOnDot(sum_VAT),intent);//передаем сумму с ндс
+        TF.getI(VAT,new BigDecimal(vatResult.getVat()).toString(),intent);//передаем НДС
+        TF.getI(TOTAL_AMOUNT_VAT,new BigDecimal(vatResult.getTotalAmountNotVat()).toString(),intent);//Сумма без ндс отправляем
+        TF.getI(PERSENT_SUM,MainActivity.getStringForFloat(vat.getPercentDeductionVAT()),intent);//отправляем процент вычета установленный юзером
         startActivity(intent);
 
     }
@@ -163,4 +167,6 @@ public class MainActivity extends AppCompatActivity {
         String myString = null;
         return myString = string.replaceAll("\\s+","");
     }
+
+
 }

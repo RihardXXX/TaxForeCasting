@@ -44,6 +44,16 @@ public class ResultActivity extends Activity {
         not_VAT.setText(ResultActivity.mySplit(notVAT));//установка в макете результата
         //==========================================================================================
 
+        //Процент вычета установленный юзером
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView percent_my = (TextView) findViewById(R.id.percent);
+        String percent = intent.getStringExtra(MainActivity.PERSENT_SUM);
+        percent_my.setText(ResultActivity.mySplit(percent) + " %");//установка в макете результата
+
+
+        //==========================================================================================
+
 
 
         //приемка входящих данных с интента и установка его в макете

@@ -66,7 +66,7 @@ public class VAT {
         return deductionsWithVAT;
     }
 
-    public float getProcentDeductionVAT() {
+    public float getPercentDeductionVAT() {
         return percentDeductionVAT;
     }
 
@@ -79,6 +79,24 @@ public class VAT {
     }
 
     public void setTotalAmountWithVAT(String totalAmountWithVAT) {
-        this.totalAmountWithVAT = VAT.getDoubleToString(totalAmountWithVAT);
+//        if (totalAmountWithVAT != null) {
+//            this.totalAmountWithVAT = VAT.getDoubleToString(totalAmountWithVAT);
+//        }
+        if (!totalAmountWithVAT.isEmpty()){
+            this.totalAmountWithVAT = VAT.getDoubleToString(totalAmountWithVAT);
+        }
+        else {
+            this.totalAmountWithVAT = VAT.getDoubleToString("0");
+        }
+    }
+
+    //кладем в свойства объекта данные проверка на пустоту процент вычета
+    public void setPercentDeductionVAT(String percentDeductionVAT) {
+        if (!percentDeductionVAT.isEmpty()) {
+            this.percentDeductionVAT = VAT.getFloatToString(percentDeductionVAT);
+        }
+        else {
+            this.percentDeductionVAT = VAT.getFloatToString("0");
+        }
     }
 }

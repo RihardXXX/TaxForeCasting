@@ -30,7 +30,12 @@ public class VATResult {
 
     //Формула подсчета НДС c общей суммы
     public void setVAT(double number){
-        this.vat = (number * 20) / 120;
+        if (number != 0) {
+            this.vat = (number * 20) / 120;
+        }
+        else {
+            this.vat = 0;
+        }
     }
 
 
@@ -49,7 +54,7 @@ public class VATResult {
 
     //вычисляем сумму без ндс
     public void setTotalAmountNotVat(double totalAmountNotVat) {
-        this.totalAmountNotVat = totalAmountNotVat;
+            this.totalAmountNotVat = totalAmountNotVat;
     }
 
     public VAT getFirstObject() {
