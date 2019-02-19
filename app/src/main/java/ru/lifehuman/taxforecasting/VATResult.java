@@ -7,7 +7,7 @@ public class VATResult {
     private double deductionSumVAT;//сумма вычетов по НДС необходимо
     private float percentBalans;// тот остаток процента ндс с которого мы будем платить ндс
     private double totalVATToPay;//Ндс необходимый оплатить
-    private double totalAmountVATAndIncomeTax;//общая сума НДС и налога на прибыль
+    private double totalAmountVATAndIncomeTax;//общая сума НДС и налога на прибыль к оплате
     private float taxBurdenPercent;//налоговая нагрузка в процентах
     private float taxBurdenWithQuarterly;//налоговая нагрузка с отчислениями
     private double toPayVAT;//к оплате НДС
@@ -34,6 +34,16 @@ public class VATResult {
         this.deductionSumVAT = result;
     }
 
+    //Ндс необходимый оплатить то есть которая считается с оставщегося у нас ндс
+    public void setTotalVATToPay(VATResult vatResult) {
+        this.totalVATToPay = (vatResult.getVat() * vatResult.getPercentBalans()) / 100;
+    }
+
+    //общая сума НДС и налога на прибыль к оплате
+    public void setTotalAmountVATAndIncomeTax(VAT vat, VATResult vatResult) {
+        this.totalAmountVATAndIncomeTax = vat.getIncomeTax() + vatResult.getTotalVATToPay();//сумма налога на прибыль и ндс к оплате
+    }
+
     //Формула подсчета НДС c общей суммы
     public void setVAT(double number){
         if (number != 0) {
@@ -45,6 +55,12 @@ public class VATResult {
     }
 
 
+    // тот остаток процента ндс с которого мы будем платить ндс
+
+
+    public void setPercentBalans(float var) {
+        this.percentBalans = 100 - var;
+    }
 
     //Формула суммы без ндс
     public static double getResultNotVAT(double totalAmounth, double vat){

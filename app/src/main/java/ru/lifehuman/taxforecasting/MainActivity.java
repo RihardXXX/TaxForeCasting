@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     public final static String VAT = "VAT";//НДС
     public final static String TOTAL_AMOUNT_VAT = "TOTAL_AMOUNT_VAT";//сумма без НДС
     public final static String DEDUCTION_TOTAL_VAT = "DEDUCTION_TOTAL_VAT";//сумма вычетов по НДС необходимо
+    public final static String DEDUCTION_TOTAL_PERCENT = "DEDUCTION_TOTAL_PERCENT";//процент остаток с которого платим ндс
     public final static String VAT_TOTAL_TO_PAY = "VAT_TOTAL_TO_PAY";//Ндс необходимый оплатить
     public final static String TOTAL_AMOUNTH_VAT_INCOME_TAX = "TOTAL_AMOUNTH_VAT_INCOME_TAX";//общая сума НДС и налога на прибыль
     public final static String TAX_BURDEN_PERCENT = "TAX_BURDEN_PERCENT";//налоговая нагрузка в процентах
@@ -86,8 +87,8 @@ public class MainActivity extends AppCompatActivity {
         String percentSum = MainActivity.myTrim(percent_sum.getText().toString());
 //
 //        //Налог на прибыль получаем с активити
-        EditText incomex_edit = (EditText) findViewById(R.id.incomex);
-        String incomex = incomex_edit.getText().toString();
+        EditText incomex_edit = (EditText) findViewById(R.id.incomex);//цепляем с шаблона данные
+        String incomex = MainActivity.myTrim(incomex_edit.getText().toString());//убираем пробелы и получаем налог на прибыль
 //
 //        //Отчисления за квартал получаем с активити
         EditText quaterly_edit = (EditText) findViewById(R.id.quarterly);
@@ -115,12 +116,16 @@ public class MainActivity extends AppCompatActivity {
 
         VAT vat = new VAT();//объекты для осуществления вычислений и инициализации
         vat.setTotalAmountWithVAT(sum_VAT);//заполняем объект данными сумма с ндс
+        vat.setIncomeTax(incomex);//кладем в свойство объекта налог на прибыль
 
         VATResult vatResult = new VATResult();//объекты для осуществления вычислений и инициализации
         vatResult.setVAT(vat.getTotalAmountWithVAT());// вычисляем ндс из суммы
         vatResult.setTotalAmountNotVat(vat.getTotalAmountWithVAT() - vatResult.getVat());//вычисляем без ндс и кладем в свойство
         vat.setPercentDeductionVAT(percentSum);//кладем в объект процент вычета устанавливаемый юзером
         vatResult.setDeductionSumVAT(vatResult,vat);//необходимо вычеты по ндс кладем в объект
+        vatResult.setPercentBalans(vat.getPercentDeductionVAT());//метод осуществляет 100 % - процент установленный юзером
+        vatResult.setTotalVATToPay(vatResult);//считаем к оплате сумму ндс с того остатка в процентах с которого должны платить
+        vatResult.setTotalAmountVATAndIncomeTax(vat,vatResult);//складываем ндс к оплате и налог на прибыль
 
         Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки;
 
@@ -130,6 +135,9 @@ public class MainActivity extends AppCompatActivity {
         TF.getI(TOTAL_AMOUNT_VAT,new BigDecimal(vatResult.getTotalAmountNotVat()).toString(),intent);//Сумма без ндс отправляем
         TF.getI(PERSENT_SUM,MainActivity.getStringForFloat(vat.getPercentDeductionVAT()),intent);//отправляем процент вычета установленный юзером
         TF.getI(DEDUCTION_TOTAL_VAT,new BigDecimal(vatResult.getDeductionSumVAT()).toString(),intent);//отправляем сумму вычетов по ндс необходимый осуществить
+        TF.getI(DEDUCTION_TOTAL_PERCENT,MainActivity.getStringForFloat(vatResult.getPercentBalans()),intent);//отправляем остаток процента ндс с которого будем платить ндс
+        TF.getI(VAT_TOTAL_TO_PAY,new BigDecimal(vatResult.getTotalVATToPay()).toString(),intent);//отправляем сумму к опалет ндс который должны платить с остатка ндс после вычета
+        TF.getI(TOTAL_AMOUNTH_VAT_INCOME_TAX,new BigDecimal(vatResult.getTotalAmountVATAndIncomeTax()).toString(),intent);//сумма ндс и налога на прибыль
         startActivity(intent);
 
     }

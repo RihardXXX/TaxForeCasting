@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
@@ -210,7 +211,7 @@
 
                 <TextView
                     android:id="@+id/percent"
-                    android:layout_width="100dp"
+                    android:layout_width="105dp"
                     android:layout_height="wrap_content"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
@@ -271,8 +272,12 @@
                     <TextView
                         android:id="@+id/percent_VAT"
                         android:layout_width="100dp"
-                        android:gravity="center"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold|italic"
+                        android:textColor="#000000"
+                        android:textSize="15dp"
+                        android:fontFamily="monospace"
+                        android:gravity="center" />
 
                     <TextView
                         android:id="@+id/result_money_with_VAT"
@@ -326,15 +331,21 @@
 
                 <TextView
                     android:id="@+id/VAT_and_income"
-                    android:layout_width="355dp"
-                    android:layout_height="match_parent" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_width="330dp"
+                    android:layout_height="wrap_content"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
-                    android:textSize="18dp"
+                    android:textSize="15dp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold|italic"
+                    android:textColor="#000000"
+                    android:textSize="17dp"
                     android:gravity="center"
                     android:background="@color/colorPrimary"
                     android:fontFamily="monospace"

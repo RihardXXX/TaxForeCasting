@@ -78,6 +78,7 @@ public class VAT {
         return quarterlyDeduction;
     }
 
+    //кладем общую сумму с ндс в объект
     public void setTotalAmountWithVAT(String totalAmountWithVAT) {
 //        if (totalAmountWithVAT != null) {
 //            this.totalAmountWithVAT = VAT.getDoubleToString(totalAmountWithVAT);
@@ -97,6 +98,17 @@ public class VAT {
         }
         else {
             this.percentDeductionVAT = VAT.getFloatToString("0");
+        }
+    }
+
+    //кладем налог на прибыль в свойтсво объекта
+
+    public void setIncomeTax(String incomeTax) {
+        if (!incomeTax.isEmpty()){
+            this.incomeTax = VAT.getDoubleToString(incomeTax);
+        }
+        else {
+            this.incomeTax = VAT.getDoubleToString("0");
         }
     }
 }
