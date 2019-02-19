@@ -28,6 +28,12 @@ public class VATResult {
 //        //
 //    }
 
+    //Сумма вычетов по ндс необходимо
+    public void setDeductionSumVAT(VATResult vatResult,VAT vat) {
+        double result = (vatResult.getVat() * vat.getPercentDeductionVAT()) / 100;
+        this.deductionSumVAT = result;
+    }
+
     //Формула подсчета НДС c общей суммы
     public void setVAT(double number){
         if (number != 0) {

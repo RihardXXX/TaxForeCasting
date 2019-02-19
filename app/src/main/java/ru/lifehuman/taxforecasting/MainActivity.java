@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     //Это ключи для отправки данных через интент второй активи
     //ключи для входящих лаетов
     public final static String SUM_VAT = "SUM_VAT";//сумма с ндс
-    public final static String DEDUCTIONS = "DEDUCTIONS";//общие отчисления
+    public final static String DEDUCTIONS = "DEDUCTIONS";//общие отчисления вычеты. которые набрали
     public final static String PERSENT_SUM = "PERSENT_SUM";//процент вычета
     public final static String INCOME_TAX = "INCOME_TAX";// налог на прибыль
     public final static String QUATERLY_TAX = "QUATERLY_TAX";// отчисления рабочих
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     // ключи для исходящих лаетов
     public final static String VAT = "VAT";//НДС
     public final static String TOTAL_AMOUNT_VAT = "TOTAL_AMOUNT_VAT";//сумма без НДС
-    public final static String DEDUCTION_TOTAL_VAT = "DEDUCTION_TOTAL_VAT";//сумма вычетов по НДС
+    public final static String DEDUCTION_TOTAL_VAT = "DEDUCTION_TOTAL_VAT";//сумма вычетов по НДС необходимо
     public final static String VAT_TOTAL_TO_PAY = "VAT_TOTAL_TO_PAY";//Ндс необходимый оплатить
     public final static String TOTAL_AMOUNTH_VAT_INCOME_TAX = "TOTAL_AMOUNTH_VAT_INCOME_TAX";//общая сума НДС и налога на прибыль
     public final static String TAX_BURDEN_PERCENT = "TAX_BURDEN_PERCENT";//налоговая нагрузка в процентах
@@ -118,9 +118,9 @@ public class MainActivity extends AppCompatActivity {
 
         VATResult vatResult = new VATResult();//объекты для осуществления вычислений и инициализации
         vatResult.setVAT(vat.getTotalAmountWithVAT());// вычисляем ндс из суммы
-        vatResult.setTotalAmountNotVat(vat.getTotalAmountWithVAT()-vatResult.getVat());//вычисляем без ндс и кладем в свойство
+        vatResult.setTotalAmountNotVat(vat.getTotalAmountWithVAT() - vatResult.getVat());//вычисляем без ндс и кладем в свойство
         vat.setPercentDeductionVAT(percentSum);//кладем в объект процент вычета устанавливаемый юзером
-
+        vatResult.setDeductionSumVAT(vatResult,vat);//необходимо вычеты по ндс кладем в объект
 
         Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки;
 
@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
         TF.getI(VAT,new BigDecimal(vatResult.getVat()).toString(),intent);//передаем НДС
         TF.getI(TOTAL_AMOUNT_VAT,new BigDecimal(vatResult.getTotalAmountNotVat()).toString(),intent);//Сумма без ндс отправляем
         TF.getI(PERSENT_SUM,MainActivity.getStringForFloat(vat.getPercentDeductionVAT()),intent);//отправляем процент вычета установленный юзером
+        TF.getI(DEDUCTION_TOTAL_VAT,new BigDecimal(vatResult.getDeductionSumVAT()).toString(),intent);//отправляем сумму вычетов по ндс необходимый осуществить
         startActivity(intent);
 
     }

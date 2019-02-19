@@ -50,11 +50,15 @@ public class ResultActivity extends Activity {
         TextView percent_my = (TextView) findViewById(R.id.percent);
         String percent = intent.getStringExtra(MainActivity.PERSENT_SUM);
         percent_my.setText(ResultActivity.mySplit(percent) + " %");//установка в макете результата
-
-
         //==========================================================================================
 
-
+        //общая сумма вычетов НДС согласно введенных данных юзером
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView result_deduction_with_VAT = (TextView) findViewById(R.id.result_deduction_with_VAT);
+        String resultDeductionWithVAT = intent.getStringExtra(MainActivity.DEDUCTION_TOTAL_VAT);//приемка данных с интента
+        result_deduction_with_VAT.setText(ResultActivity.mySplit(resultDeductionWithVAT));//установка в макете результата
+        //==========================================================================================
 
         //приемка входящих данных с интента и установка его в макете
     }
