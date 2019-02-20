@@ -81,7 +81,29 @@ public class ResultActivity extends Activity {
         VAT_and_income.setText(" = " + ResultActivity.mySplit(VATAndIncome));//установка в макете результата
         //==========================================================================================
 
-        //приемка входящих данных с интента и установка его в макете
+        //Налоговая нагрузка в процентах
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView tax_burden_percent = (TextView) findViewById(R.id.tax_burden_percent);
+        String taxBurdenPercent = intent.getStringExtra(MainActivity.TAX_BURDEN_PERCENT);
+        tax_burden_percent.setText(" = " + ResultActivity.mySplit(taxBurdenPercent));//установка в макете результата
+        //==========================================================================================
+
+        //Налоговая нагрузка в процентах в составе имеются отчисления
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView tax_burden_percent_worker = (TextView) findViewById(R.id.tax_burden_percent_worker);
+        String taxBurdenPercentWorker = intent.getStringExtra(MainActivity.TAX_BURDEN_WITH_QUATERLY);
+        tax_burden_percent_worker.setText("= " + ResultActivity.mySplit(taxBurdenPercentWorker));//установка в макете результата
+        //==========================================================================================
+
+        //Отчисления за рабочих выводим результат
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView quarterly_deductions_money = (TextView) findViewById(R.id.quarterly_deductions_money);
+        String quarterlyDeductionsMoney = intent.getStringExtra(MainActivity.QUATERLY_TAX);//приемка данных с интента
+        quarterly_deductions_money.setText("= " + ResultActivity.mySplit(quarterlyDeductionsMoney));//установка в макете результата
+        //==========================================================================================
     }
 
     //вытод вырезания строки после точки 3 числа

@@ -8,8 +8,8 @@ public class VATResult {
     private float percentBalans;// тот остаток процента ндс с которого мы будем платить ндс
     private double totalVATToPay;//Ндс необходимый оплатить
     private double totalAmountVATAndIncomeTax;//общая сума НДС и налога на прибыль к оплате
-    private float taxBurdenPercent;//налоговая нагрузка в процентах
-    private float taxBurdenWithQuarterly;//налоговая нагрузка с отчислениями
+    private double taxBurdenPercent;//налоговая нагрузка в процентах
+    private double taxBurdenWithQuarterly;//налоговая нагрузка с отчислениями
     private double toPayVAT;//к оплате НДС
     private double mustCollectDeductions;//необходимо набрать вычетов
     private double mustList;// необходимо еще перечислить
@@ -42,6 +42,19 @@ public class VATResult {
     //общая сума НДС и налога на прибыль к оплате
     public void setTotalAmountVATAndIncomeTax(VAT vat, VATResult vatResult) {
         this.totalAmountVATAndIncomeTax = vat.getIncomeTax() + vatResult.getTotalVATToPay();//сумма налога на прибыль и ндс к оплате
+    }
+
+    //Формула вычисления налоговой нагрузки в процентах (Пишу код под песенки Савичевой)
+    public void setTaxBurdenPercent(VATResult vatResult) {
+        this.taxBurdenPercent = (vatResult.getTotalAmountVATAndIncomeTax() / vatResult.getTotalAmountNotVat()) * 100;
+    }//общая сумма ндс нп / сумму без ндс *100
+
+    //налоговая нагрузка с отчислениями
+    //формула отчисления + ндс и нп / сумма без ндс * 100
+    public void setTaxBurdenWithQuarterly(VATResult vatResult,VAT vat) {
+        double number = (vat.getQuarterlyDeduction() + vatResult.getTotalAmountVATAndIncomeTax())
+                / vatResult.getTotalAmountNotVat() * 100;
+        this.taxBurdenWithQuarterly = number;
     }
 
     //Формула подсчета НДС c общей суммы
@@ -103,11 +116,11 @@ public class VATResult {
         return totalAmountVATAndIncomeTax;
     }
 
-    public float getTaxBurdenPercent() {
+    public double getTaxBurdenPercent() {
         return taxBurdenPercent;
     }
 
-    public float getTaxBurdenWithQuarterly() {
+    public double getTaxBurdenWithQuarterly() {
         return taxBurdenWithQuarterly;
     }
 

@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
         VAT vat = new VAT();//объекты для осуществления вычислений и инициализации
         vat.setTotalAmountWithVAT(sum_VAT);//заполняем объект данными сумма с ндс
         vat.setIncomeTax(incomex);//кладем в свойство объекта налог на прибыль
+        vat.setQuarterlyDeduction(quaterly);//кладем в свойство объекта очисления за квартал полученные с макета
 
         VATResult vatResult = new VATResult();//объекты для осуществления вычислений и инициализации
         vatResult.setVAT(vat.getTotalAmountWithVAT());// вычисляем ндс из суммы
@@ -126,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
         vatResult.setPercentBalans(vat.getPercentDeductionVAT());//метод осуществляет 100 % - процент установленный юзером
         vatResult.setTotalVATToPay(vatResult);//считаем к оплате сумму ндс с того остатка в процентах с которого должны платить
         vatResult.setTotalAmountVATAndIncomeTax(vat,vatResult);//складываем ндс к оплате и налог на прибыль
+        vatResult.setTaxBurdenPercent(vatResult);// вычисляем налоговую нагрузку в процентах
+        vatResult.setTaxBurdenWithQuarterly(vatResult,vat);//вычисляем налоговую нагрузку с отчислениями
 
         Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки;
 
@@ -138,6 +141,9 @@ public class MainActivity extends AppCompatActivity {
         TF.getI(DEDUCTION_TOTAL_PERCENT,MainActivity.getStringForFloat(vatResult.getPercentBalans()),intent);//отправляем остаток процента ндс с которого будем платить ндс
         TF.getI(VAT_TOTAL_TO_PAY,new BigDecimal(vatResult.getTotalVATToPay()).toString(),intent);//отправляем сумму к опалет ндс который должны платить с остатка ндс после вычета
         TF.getI(TOTAL_AMOUNTH_VAT_INCOME_TAX,new BigDecimal(vatResult.getTotalAmountVATAndIncomeTax()).toString(),intent);//сумма ндс и налога на прибыль
+        TF.getI(TAX_BURDEN_PERCENT,new BigDecimal(vatResult.getTaxBurdenPercent()).toString(),intent);//отправляем налоговую нагрузку в процентах
+        TF.getI(TAX_BURDEN_WITH_QUATERLY,new BigDecimal(vatResult.getTaxBurdenWithQuarterly()).toString(),intent);//отправляем налоговую нагрузку с отчислениями
+        TF.getI(QUATERLY_TAX, new BigDecimal(vat.getQuarterlyDeduction()).toString(),intent);//отчисления за рабочих отпралвяем
         startActivity(intent);
 
     }

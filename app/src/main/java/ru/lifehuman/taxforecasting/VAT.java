@@ -102,13 +102,22 @@ public class VAT {
     }
 
     //кладем налог на прибыль в свойтсво объекта
-
     public void setIncomeTax(String incomeTax) {
         if (!incomeTax.isEmpty()){
             this.incomeTax = VAT.getDoubleToString(incomeTax);
         }
         else {
             this.incomeTax = VAT.getDoubleToString("0");
+        }
+    }
+
+    //отчисления за квартал полученные данные кладем в свойство объекта
+    public void setQuarterlyDeduction(String quarterly) {
+        if (!quarterly.isEmpty()){
+            this.quarterlyDeduction = VAT.getDoubleToString(quarterly);
+        }
+        else{
+            this.quarterlyDeduction = VAT.getDoubleToString("0");
         }
     }
 }

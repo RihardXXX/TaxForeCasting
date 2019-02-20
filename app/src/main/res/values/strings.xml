@@ -25,7 +25,7 @@
     <string name="total_amounth_VAT_and_income">Общая сумма оплаты НДС и налога на прибыль</string>
     <string name="tax_burden_in_percent">Налоговая нагрузка:</string>
     <string name="percent_name"> % </string>
-    <string name="tax_burden_in_worker">Налоговая нагрузка с отчислениями:</string>
+    <string name="tax_burden_in_worker">Налог-я нагрузка + отчис-я:</string>
     <string name="current_state">Текущее состояние:</string>
     <string name="total_sum_money">общая сумма вычетов текущее:</string>
     <string name="payable_VAT_out">к оплате НДС вышло:</string>
