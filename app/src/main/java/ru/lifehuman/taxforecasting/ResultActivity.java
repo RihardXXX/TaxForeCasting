@@ -104,6 +104,14 @@ public class ResultActivity extends Activity {
         String quarterlyDeductionsMoney = intent.getStringExtra(MainActivity.QUATERLY_TAX);//приемка данных с интента
         quarterly_deductions_money.setText("= " + ResultActivity.mySplit(quarterlyDeductionsMoney));//установка в макете результата
         //==========================================================================================
+
+        //Сумма всех вычетов по НДС
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView total_sum_money_VAT = (TextView) findViewById(R.id.total_sum_money_VAT);
+        String totalSumMoneyVAT = intent.getStringExtra(MainActivity.DEDUCTIONS);//приемка данных с интента
+        total_sum_money_VAT.setText("= " + ResultActivity.mySplit(totalSumMoneyVAT));//установка в макете результата
+        //==========================================================================================
     }
 
     //вытод вырезания строки после точки 3 числа

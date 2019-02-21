@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     //Это ключи для отправки данных через интент второй активи
     //ключи для входящих лаетов
     public final static String SUM_VAT = "SUM_VAT";//сумма с ндс
-    public final static String DEDUCTIONS = "DEDUCTIONS";//общие отчисления вычеты. которые набрали
+    public final static String DEDUCTIONS = "DEDUCTIONS";//общие вычеты. которые набрали
     public final static String PERSENT_SUM = "PERSENT_SUM";//процент вычета
     public final static String INCOME_TAX = "INCOME_TAX";// налог на прибыль
     public final static String QUATERLY_TAX = "QUATERLY_TAX";// отчисления рабочих
@@ -79,8 +79,8 @@ public class MainActivity extends AppCompatActivity {
         EditText deduction_12 = (EditText) findViewById(R.id.deduction12);
         String deduction12 = MainActivity.myTrim(deduction_12.getText().toString());
         //инициализация массива для приема строк вычетов
-        String[] strings = {deduction1,deduction2,deduction3,deduction4,deduction5,deduction6,
-        deduction7,deduction8,deduction9,deduction10,deduction11,deduction12};
+
+
 //
 //        //Установка размера вычета НДС получаем
         EditText percent_sum = (EditText) findViewById(R.id.percent_sum);
@@ -118,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
         vat.setTotalAmountWithVAT(sum_VAT);//заполняем объект данными сумма с ндс
         vat.setIncomeTax(incomex);//кладем в свойство объекта налог на прибыль
         vat.setQuarterlyDeduction(quaterly);//кладем в свойство объекта очисления за квартал полученные с макета
+        vat.setDeductionsWithVAT(deduction1,deduction2,deduction3,deduction4,deduction5,
+                deduction6,deduction7,deduction8,deduction9,deduction10,deduction11,deduction12);//кладем все вычеты в свойство объекта
 
         VATResult vatResult = new VATResult();//объекты для осуществления вычислений и инициализации
         vatResult.setVAT(vat.getTotalAmountWithVAT());// вычисляем ндс из суммы
@@ -144,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
         TF.getI(TAX_BURDEN_PERCENT,new BigDecimal(vatResult.getTaxBurdenPercent()).toString(),intent);//отправляем налоговую нагрузку в процентах
         TF.getI(TAX_BURDEN_WITH_QUATERLY,new BigDecimal(vatResult.getTaxBurdenWithQuarterly()).toString(),intent);//отправляем налоговую нагрузку с отчислениями
         TF.getI(QUATERLY_TAX, new BigDecimal(vat.getQuarterlyDeduction()).toString(),intent);//отчисления за рабочих отпралвяем
+        TF.getI(DEDUCTIONS,new BigDecimal(vat.getDeductionsWithVAT()).toString(),intent);//отправляем все вычета но ндс
         startActivity(intent);
 
     }
@@ -182,6 +185,5 @@ public class MainActivity extends AppCompatActivity {
         String myString = null;
         return myString = string.replaceAll("\\s+","");
     }
-
 
 }

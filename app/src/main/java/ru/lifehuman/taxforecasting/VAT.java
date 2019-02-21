@@ -120,4 +120,22 @@ public class VAT {
             this.quarterlyDeduction = VAT.getDoubleToString("0");
         }
     }
+
+    //вычеты с НДС формула
+    //массив превращаем в список,в списке вычисляем сумму и оттуда выводим ндс
+    public void setDeductionsWithVAT(String ... string) {
+        ArrayList<Double> list = new ArrayList<>();//создаем коллекцию чисел double
+        for(int i = 0; i < string.length; i++) {//проходимся по каждому элементу аргумента
+            if (!string[i].isEmpty()){//если элемент не пусто то добавляем его в колллекцию
+                list.add(VAT.getDoubleToString(string[i]));//если внутри есть что то
+            }
+            else{
+                list.add(VAT.getDoubleToString("0"));//если внутри есть что то
+            }
+        }
+
+        double number = VAT.getDoubleForArraylist(list);//кладем сумму всех элементов коллекций
+        double numberVAT = (number * 20) / 120;//вычисляем ндс
+        this.deductionsWithVAT = numberVAT;
+    }
 }
