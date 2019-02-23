@@ -745,8 +745,13 @@
 
                 <TextView
                     android:id="@+id/yet_to_list_money"
-                    android:layout_width="165dp"
-                    android:layout_height="match_parent" />
+                    android:layout_width="170dp"
+                    android:layout_height="match_parent"
+                    android:textStyle="bold|italic"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"/>
 
                 <TextView
                     android:layout_width="match_parent"

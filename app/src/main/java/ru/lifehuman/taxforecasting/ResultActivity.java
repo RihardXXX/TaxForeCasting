@@ -121,12 +121,20 @@ public class ResultActivity extends Activity {
         payable_VAT_money_VAT.setText("= " + ResultActivity.mySplit(payableVATMoneyVAT));//установка в макете результата
         //==========================================================================================
 
-        //Вычеты которые необходимо набрать
+        //Вычеты которые необходимо набрать по ндс
         //==========================================================================================
         //зацепка в шаблоне поля вывода результата
         TextView total_collect_deductions = (TextView) findViewById(R.id.total_collect_deductions);
         String totalCollectDeductions = intent.getStringExtra(MainActivity.MUST_COLLECT_DEDUCTIONS);//приемка данных с интента
         total_collect_deductions.setText("= " + ResultActivity.mySplit(totalCollectDeductions));//установка в макете результата
+        //==========================================================================================
+
+        //необходимо еще перечислить чтобы выравнить параметры
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView yet_to_list_money = (TextView) findViewById(R.id.yet_to_list_money);
+        String yetToListMoney = intent.getStringExtra(MainActivity.MUST_LIST);//приемка данных с интента
+        yet_to_list_money.setText("= " + ResultActivity.mySplit(yetToListMoney));//установка в макете результата
         //==========================================================================================
     }
 

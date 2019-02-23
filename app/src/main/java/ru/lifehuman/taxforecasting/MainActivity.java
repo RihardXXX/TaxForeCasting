@@ -133,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         vatResult.setTaxBurdenWithQuarterly(vatResult,vat);//вычисляем налоговую нагрузку с отчислениями
         vatResult.setToPayVAT(vatResult,vat);//к оплате ндс вышло текущее
         vatResult.setMustCollectDeductions(vatResult);//выяеты которые необходимо набрать
+        vatResult.setMustList(vatResult);//необходимо еще перечислить какую сумму
 
         Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки;
 
@@ -151,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
         TF.getI(DEDUCTIONS,new BigDecimal(vat.getDeductionsWithVAT()).toString(),intent);//отправляем все вычета но ндс
         TF.getI(TO_PAY_VAT,new BigDecimal(vatResult.getToPayVAT()).toString(),intent);//к оплате ндс вышло текущее
         TF.getI(MUST_COLLECT_DEDUCTIONS,new BigDecimal(vatResult.getMustCollectDeductions()).toString(),intent);//вычеты коорые необходимо набрать
+        TF.getI(MUST_LIST, new BigDecimal(vatResult.getMustList()).toString(),intent);//необходимо еще перечислить
         startActivity(intent);
 
     }

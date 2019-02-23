@@ -69,6 +69,12 @@ public class VATResult {
         this.mustCollectDeductions = number;
     }
 
+    // необходимо еще перечислить формула чтобы узнать сколько перечислить поступаем наоборот
+    public void setMustList(VATResult vatResult){
+        double number = vatResult.getMustCollectDeductions() * 120 / 20;
+        this.mustList = number;
+    }
+
 
     //Формула подсчета НДС c общей суммы
     public void setVAT(double number){
