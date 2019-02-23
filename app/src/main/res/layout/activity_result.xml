@@ -564,14 +564,14 @@
 
                 <TextView
                     android:id="@+id/total_sum_money_VAT"
-                    android:layout_width="110dp"
+                    android:layout_width="145dp"
                     android:layout_height="match_parent"
                     android:textStyle="bold|italic"
                     android:textColor="#000000"
                     android:textSize="15dp"
                     android:fontFamily="monospace"
                     android:gravity="center"
-                    android:layout_marginLeft="5dp"/>
+                    />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -620,7 +620,12 @@
                 <TextView
                     android:id="@+id/payable_VAT_money_VAT"
                     android:layout_width="190dp"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:textStyle="bold|italic"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -687,7 +692,12 @@
                 <TextView
                     android:id="@+id/total_collect_deductions"
                     android:layout_width="220dp"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    android:textStyle="bold|italic"
+                    android:textColor="#000000"
+                    android:textSize="15dp"
+                    android:fontFamily="monospace"
+                    android:gravity="center"/>
 
                 <TextView
                     android:layout_width="match_parent"

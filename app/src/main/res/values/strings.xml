@@ -27,7 +27,7 @@
     <string name="percent_name"> % </string>
     <string name="tax_burden_in_worker">Налог-я нагрузка + отчис-я:</string>
     <string name="current_state">Текущее состояние:</string>
-    <string name="total_sum_money">общая сумма вычетов текущее:</string>
+    <string name="total_sum_money">общая сумма выч-в тек-е:</string>
     <string name="payable_VAT_out">к оплате НДС вышло:</string>
     <string name="need_to_bring">Необходимо еще:</string>
     <string name="collect_deductions">набрать вычетов:</string>

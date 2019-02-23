@@ -131,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
         vatResult.setTotalAmountVATAndIncomeTax(vat,vatResult);//складываем ндс к оплате и налог на прибыль
         vatResult.setTaxBurdenPercent(vatResult);// вычисляем налоговую нагрузку в процентах
         vatResult.setTaxBurdenWithQuarterly(vatResult,vat);//вычисляем налоговую нагрузку с отчислениями
+        vatResult.setToPayVAT(vatResult,vat);//к оплате ндс вышло текущее
+        vatResult.setMustCollectDeductions(vatResult);//выяеты которые необходимо набрать
 
         Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки;
 
@@ -147,6 +149,8 @@ public class MainActivity extends AppCompatActivity {
         TF.getI(TAX_BURDEN_WITH_QUATERLY,new BigDecimal(vatResult.getTaxBurdenWithQuarterly()).toString(),intent);//отправляем налоговую нагрузку с отчислениями
         TF.getI(QUATERLY_TAX, new BigDecimal(vat.getQuarterlyDeduction()).toString(),intent);//отчисления за рабочих отпралвяем
         TF.getI(DEDUCTIONS,new BigDecimal(vat.getDeductionsWithVAT()).toString(),intent);//отправляем все вычета но ндс
+        TF.getI(TO_PAY_VAT,new BigDecimal(vatResult.getToPayVAT()).toString(),intent);//к оплате ндс вышло текущее
+        TF.getI(MUST_COLLECT_DEDUCTIONS,new BigDecimal(vatResult.getMustCollectDeductions()).toString(),intent);//вычеты коорые необходимо набрать
         startActivity(intent);
 
     }

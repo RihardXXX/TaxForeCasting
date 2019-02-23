@@ -112,6 +112,22 @@ public class ResultActivity extends Activity {
         String totalSumMoneyVAT = intent.getStringExtra(MainActivity.DEDUCTIONS);//приемка данных с интента
         total_sum_money_VAT.setText("= " + ResultActivity.mySplit(totalSumMoneyVAT));//установка в макете результата
         //==========================================================================================
+
+        //К оплате НДС вышло текущее
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView payable_VAT_money_VAT = (TextView) findViewById(R.id.payable_VAT_money_VAT);
+        String payableVATMoneyVAT = intent.getStringExtra(MainActivity.TO_PAY_VAT);//приемка данных с интента
+        payable_VAT_money_VAT.setText("= " + ResultActivity.mySplit(payableVATMoneyVAT));//установка в макете результата
+        //==========================================================================================
+
+        //Вычеты которые необходимо набрать
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView total_collect_deductions = (TextView) findViewById(R.id.total_collect_deductions);
+        String totalCollectDeductions = intent.getStringExtra(MainActivity.MUST_COLLECT_DEDUCTIONS);//приемка данных с интента
+        total_collect_deductions.setText("= " + ResultActivity.mySplit(totalCollectDeductions));//установка в макете результата
+        //==========================================================================================
     }
 
     //вытод вырезания строки после точки 3 числа
