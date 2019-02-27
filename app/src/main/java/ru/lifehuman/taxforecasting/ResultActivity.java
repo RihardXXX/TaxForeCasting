@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 
@@ -140,10 +141,25 @@ public class ResultActivity extends Activity {
 
     //вытод вырезания строки после точки 3 числа
     public static String mySplit(String string) {
-        String str = null;
-        //вырезаем после 3 числа после точки остальное
-        str = String.format("%.3f", Double.parseDouble(string));
-        return str;
+
+        DecimalFormat myFormatter = new DecimalFormat("###,###.###");
+        String output = myFormatter.format(Double.parseDouble(string));
+        return output;
+//        String str = null;
+//        str = String.format("%.3f", Double.parseDouble(string));
+//        return str;
+
+
+        //==============================
+//        String str = null;
+//        //вырезаем после 3 числа после точки остальное
+//        str = String.format("%.3f", Double.parseDouble(string));
+//        //добавляем пробелы через каждые три числа
+//        DecimalFormat df = new DecimalFormat(",###");
+//        str = df.format(str.);
+//        return str;
+
+        //==================
         //сначала ставим первый пробел перед точкой.
         //находим индекс точки в строке
 //        int pointPosition = string.indexOf(".");

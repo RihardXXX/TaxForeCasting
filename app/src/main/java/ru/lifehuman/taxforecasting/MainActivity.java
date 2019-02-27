@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -136,6 +137,8 @@ public class MainActivity extends AppCompatActivity {
         vatResult.setMustList(vatResult);//необходимо еще перечислить какую сумму
 
         Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки;
+
+
 
         //Проверяем на пустоту свойство а потом только отправляем через интент
         TF.getI(SUM_VAT,new VAT().getStringReplaceOnDot(sum_VAT),intent);//передаем сумму с ндс
