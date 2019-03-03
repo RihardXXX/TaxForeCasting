@@ -32,4 +32,5 @@
     <string name="need_to_bring">Необходимо еще:</string>
     <string name="collect_deductions">набрать вычетов:</string>
     <string name="yet_to_list">еще перечислить с ндс:</string>
+    <string name="total_load">нагрузка от общей суммы</string>
 </resources>

@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     public final static String TO_PAY_VAT = "TO_PAY_VAT";//к оплате НДС
     public final static String MUST_COLLECT_DEDUCTIONS = "MUST_COLLECT_DEDUCTIONS";//необходимо набрать вычетов
     public final static String MUST_LIST = "MUST_LIST";// необходимо еще перечислить
+    public final static String TOTAL_LOAD = "TOTAL_LOAD";//общая нагрузка
 
 
 
@@ -135,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
         vatResult.setToPayVAT(vatResult,vat);//к оплате ндс вышло текущее
         vatResult.setMustCollectDeductions(vatResult);//выяеты которые необходимо набрать
         vatResult.setMustList(vatResult);//необходимо еще перечислить какую сумму
+        vatResult.setTotalLoad(vatResult,vat);//высчитываем общую нагрузку,выплаты от общей суммы
 
         Intent intent = new Intent(this, ResultActivity.class);//создание интента для отправки;
 
@@ -156,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
         TF.getI(TO_PAY_VAT,new BigDecimal(vatResult.getToPayVAT()).toString(),intent);//к оплате ндс вышло текущее
         TF.getI(MUST_COLLECT_DEDUCTIONS,new BigDecimal(vatResult.getMustCollectDeductions()).toString(),intent);//вычеты коорые необходимо набрать
         TF.getI(MUST_LIST, new BigDecimal(vatResult.getMustList()).toString(),intent);//необходимо еще перечислить
+        TF.getI(TOTAL_LOAD,new BigDecimal(vatResult.getTotalLoad()).toString(),intent);//общая нагрузка то есть выплаты с общей суммы
         startActivity(intent);
 
     }

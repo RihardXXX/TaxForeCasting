@@ -137,6 +137,14 @@ public class ResultActivity extends Activity {
         String yetToListMoney = intent.getStringExtra(MainActivity.MUST_LIST);//приемка данных с интента
         yet_to_list_money.setText("= " + ResultActivity.mySplit(yetToListMoney));//установка в макете результата
         //==========================================================================================
+
+        //Нагрузка от общей суммы ,то есть сумма которая уходит с организации
+        //==========================================================================================
+        //зацепка в шаблоне поля вывода результата
+        TextView total_load = (TextView) findViewById(R.id.total_load);
+        String totalLoad = intent.getStringExtra(MainActivity.TOTAL_LOAD);
+        total_load.setText(" = " + ResultActivity.mySplit(totalLoad));//установка в макете результата
+        //==========================================================================================
     }
 
     //вытод вырезания строки после точки 3 числа

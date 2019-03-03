@@ -13,6 +13,8 @@ public class VATResult {
     private double toPayVAT;//к оплате НДС вышло
     private double mustCollectDeductions;//необходимо набрать вычетов
     private double mustList;// необходимо еще перечислить
+    private double totalLoad;// общая нагрузка ,выплаты от общей суммы
+
 
     private VAT firstObject;//объект класса VAT в который будут классататься входящие данные
 
@@ -109,6 +111,14 @@ public class VATResult {
             this.totalAmountNotVat = totalAmountNotVat;
     }
 
+    // общая нагрузка ,выплаты от общей суммы
+    //формула нп и ндс + отчисления / общая сумма с ндс * 100
+    public void setTotalLoad(VATResult vatResult, VAT vat) {
+        double number = (vat.getQuarterlyDeduction() + vatResult.getTotalAmountVATAndIncomeTax()) /
+                            vat.getTotalAmountWithVAT() * 100;
+        this.totalLoad = number;
+    }
+
     public VAT getFirstObject() {
         return firstObject;
     }
@@ -157,5 +167,7 @@ public class VATResult {
         return percentBalans;
     }
 
-
+    public double getTotalLoad() {
+        return totalLoad;
+    }
 }
